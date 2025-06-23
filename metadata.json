@@ -1,0 +1,14 @@
+{
+  "name": "NixOS Tools",
+  "description": "Quick access to common NixOS tools and commands",
+  "uuid": "nixos-tools@art-was-here.github.io",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48"
+  ],
+  "version": 2,
+  "url": "https://github.com/art-was-here/nixos-tools",
+  "settings-schema": "org.gnome.shell.extensions.nixos-tools"
+} 

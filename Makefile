@@ -1,10 +1,10 @@
-EXTENSION_NAME = nixos-shortcuts@gnome-shell-extensions.gcampax.github.com
+EXTENSION_NAME = nixos-tools@art-was-here.github.io
 EXTENSION_DIR = $(HOME)/.local/share/gnome-shell/extensions/$(EXTENSION_NAME)
 
 all: install
 
 install: compile-schemas
-	@echo "Installing NixOS Shortcuts extension..."
+	@echo "Installing NixOS Tools extension..."
 	@mkdir -p $(EXTENSION_DIR)
 	@cp -r . $(EXTENSION_DIR)
 	@echo "Extension installed to: $(EXTENSION_DIR)"
@@ -16,7 +16,7 @@ compile-schemas:
 	@glib-compile-schemas schemas/
 
 uninstall:
-	@echo "Uninstalling NixOS Shortcuts extension..."
+	@echo "Uninstalling NixOS Tools extension..."
 	@rm -rf $(EXTENSION_DIR)
 	@echo "Extension uninstalled"
 

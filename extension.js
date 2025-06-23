@@ -32,7 +32,7 @@ export default class NixOSShortcutsExtension extends Extension {
 const NixOSIndicator = GObject.registerClass(
 class NixOSIndicator extends PanelMenu.Button {
     _init(extension) {
-        super._init(0.0, 'NixOS Shortcuts');
+        super._init(0.0, 'NixOS Tools');
         
         this._extension = extension;
         this._settings = extension.getSettings();
@@ -157,16 +157,16 @@ class NixOSIndicator extends PanelMenu.Button {
     _searchPackage(packageName) {
         try {
             let searchUrl = `https://search.nixos.org/packages?query=${encodeURIComponent(packageName)}`;
-            console.log(`NixOS Shortcuts: Opening package search for: ${packageName}`);
-            console.log(`NixOS Shortcuts: URL: ${searchUrl}`);
+            console.log(`NixOS Tools: Opening package search for: ${packageName}`);
+            console.log(`NixOS Tools: URL: ${searchUrl}`);
             
             // Open the URL in default browser
             Gio.AppInfo.launch_default_for_uri(searchUrl, null);
             
-            Main.notify('NixOS Shortcuts', `Searching for package: ${packageName}`);
+            Main.notify('NixOS Tools', `Searching for package: ${packageName}`);
         } catch (error) {
-            console.log(`NixOS Shortcuts: Error opening package search: ${error.message}`);
-            Main.notify('NixOS Shortcuts', `Error opening package search: ${error.message}`);
+            console.log(`NixOS Tools: Error opening package search: ${error.message}`);
+            Main.notify('NixOS Tools', `Error opening package search: ${error.message}`);
         }
     }
     
@@ -202,7 +202,7 @@ class NixOSIndicator extends PanelMenu.Button {
             console.log(`NixOS Shortcuts: Executing command in background: ${command}`);
             
             // Show notification that command is starting
-            Main.notify('NixOS Shortcuts', `Executing: ${command.length > 50 ? command.substring(0, 50) + '...' : command}`);
+            Main.notify('NixOS Tools', `Executing: ${command.length > 50 ? command.substring(0, 50) + '...' : command}`);
             
             // Execute command in background
             let proc = Gio.Subprocess.new(
@@ -217,35 +217,35 @@ class NixOSIndicator extends PanelMenu.Button {
                     let exitCode = proc.get_exit_status();
                     
                     if (exitCode === 0) {
-                        console.log(`NixOS Shortcuts: Command completed successfully`);
+                        console.log(`NixOS Tools: Command completed successfully`);
                         if (stdout && stdout.trim()) {
-                            console.log(`NixOS Shortcuts: Output: ${stdout}`);
+                            console.log(`NixOS Tools: Output: ${stdout}`);
                         }
-                        Main.notify('NixOS Shortcuts', 'Command completed successfully');
+                        Main.notify('NixOS Tools', 'Command completed successfully');
                     } else {
-                        console.log(`NixOS Shortcuts: Command failed with exit code: ${exitCode}`);
+                        console.log(`NixOS Tools: Command failed with exit code: ${exitCode}`);
                         if (stderr && stderr.trim()) {
-                            console.log(`NixOS Shortcuts: Error: ${stderr}`);
+                            console.log(`NixOS Tools: Error: ${stderr}`);
                         }
-                        Main.notify('NixOS Shortcuts', `Command failed (exit code: ${exitCode})`);
+                        Main.notify('NixOS Tools', `Command failed (exit code: ${exitCode})`);
                     }
                 } catch (error) {
-                    console.log(`NixOS Shortcuts: Error handling command result: ${error.message}`);
-                    Main.notify('NixOS Shortcuts', 'Command execution error');
+                    console.log(`NixOS Tools: Error handling command result: ${error.message}`);
+                    Main.notify('NixOS Tools', 'Command execution error');
                 }
             });
             
         } catch (error) {
-            console.log(`NixOS Shortcuts: Error executing command: ${error.message}`);
+            console.log(`NixOS Tools: Error executing command: ${error.message}`);
             
             // Fallback: try simpler spawn method
             try {
-                console.log(`NixOS Shortcuts: Trying fallback execution method`);
+                console.log(`NixOS Tools: Trying fallback execution method`);
                 GLib.spawn_command_line_async(`bash -c "${command}"`);
-                Main.notify('NixOS Shortcuts', 'Command started (fallback method)');
+                Main.notify('NixOS Tools', 'Command started (fallback method)');
             } catch (fallbackError) {
-                console.log(`NixOS Shortcuts: Fallback also failed: ${fallbackError.message}`);
-                Main.notify('NixOS Shortcuts', `Error executing command: ${error.message}`);
+                console.log(`NixOS Tools: Fallback also failed: ${fallbackError.message}`);
+                Main.notify('NixOS Tools', `Error executing command: ${error.message}`);
             }
         }
     }

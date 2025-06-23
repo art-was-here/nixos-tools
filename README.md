@@ -1,6 +1,6 @@
-# NixOS Shortcuts GNOME Extension
+# NixOS Tools GNOME Extension
 
-A GNOME Shell extension that provides quick access to common NixOS commands from the status bar.
+A GNOME Shell extension that provides quick access to common NixOS tools and commands from the status bar.
 
 ## Features
 
@@ -26,8 +26,8 @@ A GNOME Shell extension that provides quick access to common NixOS commands from
 
 ```bash
 # Clone or download the extension
-git clone <repository-url> nixos-shortcuts
-cd nixos-shortcuts
+git clone https://github.com/art-was-here/nixos-tools.git
+cd nixos-tools
 
 # Install the extension
 make install
@@ -42,13 +42,13 @@ make install
 
 ```bash
 # Create extension directory
-mkdir -p ~/.local/share/gnome-shell/extensions/nixos-shortcuts@gnome-shell-extensions.gcampax.github.com
+mkdir -p ~/.local/share/gnome-shell/extensions/nixos-tools@art-was-here.github.io
 
 # Copy extension files
-cp -r * ~/.local/share/gnome-shell/extensions/nixos-shortcuts@gnome-shell-extensions.gcampax.github.com/
+cp -r * ~/.local/share/gnome-shell/extensions/nixos-tools@art-was-here.github.io/
 
 # Compile GSettings schemas
-cd ~/.local/share/gnome-shell/extensions/nixos-shortcuts@gnome-shell-extensions.gcampax.github.com
+cd ~/.local/share/gnome-shell/extensions/nixos-tools@art-was-here.github.io
 glib-compile-schemas schemas/
 
 # Restart GNOME Shell and enable the extension
@@ -72,7 +72,7 @@ glib-compile-schemas schemas/
 
 ## Requirements
 
-- GNOME Shell 42 or later
+- GNOME Shell 45 or later
 - NixOS system
 - `pkexec` for sudo authentication (usually pre-installed)
 - `gnome-terminal` for command execution
@@ -111,9 +111,15 @@ make uninstall
 Or manually:
 
 ```bash
-rm -rf ~/.local/share/gnome-shell/extensions/nixos-shortcuts@gnome-shell-extensions.gcampax.github.com
+rm -rf ~/.local/share/gnome-shell/extensions/nixos-tools@art-was-here.github.io
 ```
 
 ## License
 
-This project is open source. Feel free to modify and redistribute. 
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
+
+## About
+
+A GNOME extension to bring quick access to common NixOS tools and commands. Commands can be customized in the settings.
+
+For more information, visit: https://github.com/art-was-here/nixos-tools 

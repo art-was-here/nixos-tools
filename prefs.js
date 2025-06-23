@@ -16,7 +16,7 @@ export default class NixOSShortcutsPreferences extends ExtensionPreferences {
         window.add(page);
 
         const group = new Adw.PreferencesGroup({
-            title: _('NixOS Shortcuts Configuration'),
+            title: _('NixOS Tools Configuration'),
             description: _('Customize the commands for each menu item'),
         });
         page.add(group);

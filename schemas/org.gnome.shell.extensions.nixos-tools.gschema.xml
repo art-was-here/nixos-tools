@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.nixos-tools" path="/org/gnome/shell/extensions/nixos-tools/">
+    <key name="rebuild-switch" type="s">
+      <default>'sudo nixos-rebuild switch'</default>
+      <summary>Rebuild Switch Command</summary>
+      <description>Command to execute for rebuilding and switching NixOS configuration</description>
+    </key>
+    <key name="rollback-switch" type="s">
+      <default>'sudo nixos-rebuild switch --rollback'</default>
+      <summary>Rollback Switch Command</summary>
+      <description>Command to execute for rolling back to previous NixOS configuration</description>
+    </key>
+    <key name="empty-garbage" type="s">
+      <default>'nix-collect-garbage --delete-older-than 30d'</default>
+      <summary>Empty Garbage Command</summary>
+      <description>Command to execute for cleaning up old Nix store entries</description>
+    </key>
+    <key name="nix-store-optimize" type="s">
+      <default>'nix-store --optimise'</default>
+      <summary>Nix Store Optimize Command</summary>
+      <description>Command to execute for optimizing the Nix store</description>
+    </key>
+    <key name="rebuild-boot" type="s">
+      <default>'sudo nixos-rebuild boot'</default>
+      <summary>Rebuild Boot Command</summary>
+      <description>Command to execute for rebuilding NixOS boot configuration</description>
+    </key>
+    <key name="get-latest-packages" type="s">
+      <default>'sudo nix-channel --update'</default>
+      <summary>Get Latest Packages Command</summary>
+      <description>Command to execute for updating Nix channels</description>
+    </key>
+    <key name="update-and-apply" type="s">
+      <default>'sudo nixos-rebuild switch --upgrade'</default>
+      <summary>Update and Apply Command</summary>
+      <description>Command to execute for updating channels and applying changes</description>
+    </key>
+  </schema>
+</schemalist> 

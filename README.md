@@ -10,6 +10,8 @@ A GNOME Shell extension that provides quick access to common NixOS tools and com
 - **Customizable**: Configure custom commands for each menu item
 - **Terminal Integration**: Commands run in GNOME Terminal with output visibility
 
+![NixOS Tools Menu](screenshots/example0.png) ![NixOS Tools Settings](screenshots/example1.png)
+
 ## Default Commands
 
 - **Rebuild Switch**: `sudo nixos-rebuild switch`
